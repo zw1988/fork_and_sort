@@ -4,11 +4,8 @@
 #include <libgen.h>
 #include <assert.h>
 
-#define N 6000000
+#define N 9000000
 
-
-int* read_data(char *fname);
-
-int check(int *a);
+void sort(void (*sort_method)(int *a, int s, int e), char *fname);
 
 #endif

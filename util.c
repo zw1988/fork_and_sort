@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 int read_int(FILE *fp) {
     char c = fgetc(fp);
@@ -32,4 +33,13 @@ int check(int *a) {
         if (a[i - 1] > a[i])
             return 0;
     return 1;
+}
+
+void sort(void (*sort_method)(int *a, int start, int end), char *filename) {
+    int *a = read_data(filename);
+    clock_t start = clock();
+    sort_method(a, 1, N);
+    printf("%s cost time %lf, N  %d\n", filename, (clock() - start) * 1.0 / CLOCKS_PER_SEC, N);
+    assert(check(a));
+    free(a);
 }

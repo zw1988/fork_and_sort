@@ -25,10 +25,11 @@ void quick_sort(int *a, int l, int r) {
 }
 
 int main() {
-    int *a = read_data(basename(__FILE__));
+    /*int *a = read_data(basename(__FILE__));
     clock_t start = clock();
     quick_sort(a, 1, N);
     printf("quick sort cost time %lf, N %d\n",  (clock() - start) * 1.0 / CLOCKS_PER_SEC, N);
-    assert(check(a));
+    assert(check(a));*/
+    sort(quick_sort, basename(__FILE__));
     return 0;
 }

@@ -11,10 +11,10 @@
 
 int ARRAY[N + 1];
 
-char *sort_ways[] = {
+char *sort_methods[] = {
+    "heap_sort",
     "merge_sort",
     "quick_sort",
-    "heap_sort",
 };
 
 void shuffle(int *a, int n) {
@@ -45,7 +45,7 @@ int main() {
     char filename[64];
     for(int i = 0; i < NUM_PROCESS; i++){
 
-        strcpy(filename, sort_ways[i]);
+        strcpy(filename, sort_methods[i]);
         strcat(filename, ".c.data");
         FILE *fp = fopen(filename, "w");
         for(int i = 1; i <= N; i ++) 
@@ -55,8 +55,8 @@ int main() {
         pid_t pid = fork();
         if (pid==0) {
             char* args[] = {
-                sort_ways[i],
-                sort_ways[i],
+                sort_methods[i],
+                sort_methods[i],
                 (char *)0,
             };
             execv(args[0], args);

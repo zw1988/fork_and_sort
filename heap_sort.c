@@ -15,7 +15,7 @@ void heap_adjust(int* a, int s, int n) {
     }
     a[s] = tmp; 
 }
-void heap_sort(int* a, int n) {
+void heap_sort(int* a, int useless, int n) {
     for(int i = n >> 1; i > 0; i --) 
         heap_adjust(a, i, n);
     for(int i = n; i > 0; i --) {
@@ -26,10 +26,11 @@ void heap_sort(int* a, int n) {
     }
 }
 int main() {
-    int *a = read_data(basename(__FILE__));
+    /*int *a = read_data(basename(__FILE__));
     clock_t start = clock();
     heap_sort(a, N);
     printf("heap sort cost time %.2lf, N %d\n",  (clock() - start) * 1.0 / CLOCKS_PER_SEC, N);
-    assert(check(a));
+    assert(check(a));*/
+    sort(heap_sort, basename(__FILE__));
     return 0;
 }
